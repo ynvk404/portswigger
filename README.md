@@ -5,6 +5,7 @@
 Ứng dụng là một cửa hàng trực tuyến có tích hợp tính năng live chat sử dụng WebSocket để truyền và nhận tin nhắn theo thời gian thực.
 
 ✅ **Điểm yếu bảo mật:**
+
 WebSocket không yêu cầu CSRF token khi handshake.
 
 Cookie phiên của người dùng vẫn được gửi trong quá trình WebSocket handshake từ bất kỳ origin nào.
@@ -15,6 +16,7 @@ Cho phép kẻ tấn công tạo một script độc hại khiến trình duyệ
 Sử dụng tính năng Exploit Server để gửi một trang HTML chứa script khai thác đến nạn nhân, đánh cắp lịch sử chat của họ. Trong đó có chứa username và password, từ đó đăng nhập và hoàn thành lab.
 
 🔍 **Bước 1: Quan sát hoạt động của WebSocket**
+
 Truy cập lab, nhấn vào "Live chat".
 
 Gửi một tin nhắn bất kỳ.
@@ -38,6 +40,7 @@ Kiểm tra và xác nhận: không có CSRF token trong header.
 ![image](https://github.com/user-attachments/assets/34d82764-0e63-4957-bb6c-d0cf4d3121c8)
 
 💥 **Bước 2: Khai thác bằng JavaScript**
+
 Truy cập Exploit Server, dán đoạn script sau vào phần Body của payload:
 
 <script>
@@ -60,6 +63,7 @@ Thay <your-lab-id> bằng lab ID của bạn (copy từ yêu cầu handshake Web
 Thay <your-collaborator-id> bằng Burp Collaborator payload.
 
 🔁 **Quy trình khai thác**
+
 Nạn nhân truy cập trang exploit.
 
 Script chạy trên trình duyệt của nạn nhân.
@@ -75,6 +79,7 @@ Attacker thu được thông tin đăng nhập trong nội dung chat.
 ![image](https://github.com/user-attachments/assets/f2ac2644-962b-47b0-9372-d0ee47e0545f)
 
 🧩 **Bước 3: Đăng nhập và hoàn thành Lab**
+
 Mở Burp → Collaborator tab → Poll now.
 
 Kiểm tra các request chứa lịch sử chat → tìm username và password.
@@ -82,6 +87,7 @@ Kiểm tra các request chứa lịch sử chat → tìm username và password.
 Dùng thông tin đó để đăng nhập và hoàn thành lab.
 
 ✅ **Kết luận**
+
 Lỗi WebSocket hijacking xảy ra khi:
 
 WebSocket không kiểm tra Origin hoặc CSRF token.
