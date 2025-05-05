@@ -14,6 +14,7 @@ Cookie phiên của người dùng vẫn được gửi trong quá trình WebSoc
 Cho phép kẻ tấn công tạo một script độc hại khiến trình duyệt của nạn nhân tự động kết nối lại WebSocket bằng session hợp lệ của họ.
 
 🧩 **Mục tiêu**
+
 Sử dụng tính năng Exploit Server để gửi một trang HTML chứa script khai thác đến nạn nhân, đánh cắp lịch sử chat của họ. Trong đó có chứa username và password, từ đó đăng nhập và hoàn thành lab.
 
 🔍 **Bước 1: Quan sát hoạt động của WebSocket**
