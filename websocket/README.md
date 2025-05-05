@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/6e4d3254-584c-4a01-b040-6e7c51360761)🧪 **Lab: Cross-site WebSocket Hijacking (PortSwigger)**
+🧪 **Lab: Cross-site WebSocket Hijacking (PortSwigger)**
 
 🔗 **Lab URL: https://portswigger.net/web-security/websockets/cross-site-websocket-hijacking/lab**
 
